@@ -79,6 +79,7 @@
       min-height: 44px;
     }
     nav a:hover { text-decoration: underline; }
+    .nav-language { font-size: .9em; }
 
     .hero {
       display: grid;
@@ -155,10 +156,10 @@
       position: absolute;
       display: block;
       max-width: none;
-      width: 202.81%;
+      width: 184.5%;
       height: auto;
-      left: -91.11%;
-      top: -89.48%;
+      right: 0;
+      top: -74.8%;
     }
     .languages {
       padding: 13px 14px 14px;
@@ -371,9 +372,10 @@
       .teaching-course { grid-column: 2 / -1; }
       .teaching-term { grid-column: 2; }
     }
-    @media (max-width: 360px) {
+    @media (max-width: 425px) {
       .masthead .wrap { width: calc(100% - 24px); gap: 6px; }
       nav { column-gap: 6px; }
+      nav a { font-size: 12px; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -401,7 +403,7 @@
         <a href="#publications">Publications</a>
         <a href="#service">Service</a>
         <a href="#teaching">Teaching</a>
-        <a href="./blog.html">Blog</a>
+        <a href="./blog.html">Blog<span class="nav-language" lang="zh-Hans">（中文）</span></a>
       </nav>
     </div>
   </header>
