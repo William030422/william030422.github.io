@@ -310,11 +310,10 @@
     .preprint-title .icon { color: var(--accent); vertical-align: -.11em; }
     .preprint .authors { margin-top: 3px; }
 
-    .teaching-affiliation { margin-top: 9px; color: var(--muted); }
     .teaching-list { margin-top: 13px; }
     .teaching-row {
       display: grid;
-      grid-template-columns: 78px minmax(0, 1fr) 142px 100px;
+      grid-template-columns: 116px minmax(0, 1fr) 142px 100px;
       align-items: baseline;
       gap: 14px;
       padding: 12px 0;
@@ -323,7 +322,9 @@
     .teaching-row:last-child { padding-bottom: 0; }
     .teaching-course p, .teaching-term, .teaching-duration { color: var(--muted); font-size: 14px; }
     .teaching-course p { margin-top: 3px; }
-    .teaching-type { justify-self: start; margin-bottom: 0; }
+    .teaching-tags { display: flex; align-items: baseline; gap: 6px; }
+    .teaching-tags .venue { margin-bottom: 0; }
+    .teaching-institution { background: #e4eef6; color: #244760; text-decoration: none; }
     .teaching-duration { font-variant-numeric: tabular-nums; }
 
     .service ul { margin-top: 16px; }
@@ -368,7 +369,7 @@
       .preprint { grid-template-columns: 43px minmax(0, 1fr); gap: 10px; }
       .service li { grid-template-columns: 1fr; gap: 2px; }
       .teaching-list { margin-top: 9px; }
-      .teaching-row { grid-template-columns: 78px minmax(0, 1fr) max-content; gap: 6px 12px; }
+      .teaching-row { grid-template-columns: 116px minmax(0, 1fr) max-content; gap: 6px 12px; }
       .teaching-course { grid-column: 2 / -1; }
       .teaching-term { grid-column: 2; }
     }
@@ -548,16 +549,21 @@
 
     <section id="teaching" class="section" aria-labelledby="teaching-title">
       <h2 id="teaching-title" class="section-title">Teaching</h2>
-      <p class="teaching-affiliation">Beijing Institute of Technology · Volunteer lectures and workshops</p>
       <ul class="teaching-list">
         <li class="teaching-row">
-          <span class="venue teaching-type">Workshop</span>
+          <div class="teaching-tags">
+            <abbr class="venue teaching-institution" title="Beijing Institute of Technology">BIT</abbr>
+            <span class="venue teaching-type">Workshop</span>
+          </div>
           <div class="teaching-course"><strong>Data Structures and Algorithm Analysis</strong></div>
           <span class="teaching-term">Spring &amp; Fall 2023</span>
           <span class="teaching-duration">14 hours</span>
         </li>
         <li class="teaching-row">
-          <span class="venue teaching-type">Workshop</span>
+          <div class="teaching-tags">
+            <abbr class="venue teaching-institution" title="Beijing Institute of Technology">BIT</abbr>
+            <span class="venue teaching-type">Workshop</span>
+          </div>
           <div class="teaching-course">
             <strong>Databases</strong>
             <p>Final exam review</p>
@@ -566,7 +572,10 @@
           <span class="teaching-duration">6 hours</span>
         </li>
         <li class="teaching-row">
-          <span class="venue teaching-type">Workshop</span>
+          <div class="teaching-tags">
+            <abbr class="venue teaching-institution" title="Beijing Institute of Technology">BIT</abbr>
+            <span class="venue teaching-type">Workshop</span>
+          </div>
           <div class="teaching-course">
             <strong>C++ Programming</strong>
             <p>Final exam review</p>
@@ -575,7 +584,10 @@
           <span class="teaching-duration">6 hours</span>
         </li>
         <li class="teaching-row">
-          <span class="venue teaching-type">Lecture</span>
+          <div class="teaching-tags">
+            <abbr class="venue teaching-institution" title="Beijing Institute of Technology">BIT</abbr>
+            <span class="venue teaching-type">Lecture</span>
+          </div>
           <div class="teaching-course">
             <strong>Calculus</strong>
             <p>Exam reviews for economics students</p>
@@ -586,7 +598,10 @@
           </div>
         </li>
         <li class="teaching-row">
-          <span class="venue teaching-type">Lecture</span>
+          <div class="teaching-tags">
+            <abbr class="venue teaching-institution" title="Beijing Institute of Technology">BIT</abbr>
+            <span class="venue teaching-type">Lecture</span>
+          </div>
           <div class="teaching-course">
             <strong>Advanced Mathematical Analysis</strong>
             <p>Midterm review for engineering students</p>
