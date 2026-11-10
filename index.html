@@ -308,6 +308,13 @@
     .preprint-title .icon { color: var(--accent); vertical-align: -.11em; }
     .preprint .authors { margin-top: 3px; }
 
+    .teaching-affiliation { margin-top: 9px; color: var(--muted); }
+    .teaching-list { margin-top: 12px; }
+    .teaching-list li { padding: 12px 0; }
+    .teaching-list li + li { border-top: 1px solid var(--rule); }
+    .teaching-list li:last-child { padding-bottom: 0; }
+    .teaching-list p { margin-top: 3px; color: var(--muted); font-size: 14px; }
+
     .service ul { margin-top: 16px; }
     .service li {
       display: grid;
@@ -331,9 +338,9 @@
     }
     @media (max-width: 650px) {
       .wrap { width: calc(100% - 40px); }
-      .masthead .wrap { min-height: 63px; }
-      nav { gap: 14px; }
-      nav a { font-size: 13px; }
+      .masthead .wrap { min-height: 63px; gap: 8px; }
+      nav { flex-wrap: wrap; justify-content: flex-end; gap: 0 clamp(7px, 2.25vw, 14px); }
+      nav a { font-size: clamp(12px, 3.3vw, 13px); }
       .hero { grid-template-columns: 1fr; align-items: start; gap: 23px; padding-block: 32px 38px; }
       .profile-side { display: contents; }
       .portrait { grid-row: 1; width: 150px; padding: 5px; border-radius: 9px; }
@@ -374,6 +381,7 @@
       <nav aria-label="Main navigation">
         <a href="#about">About</a>
         <a href="#publications">Publications</a>
+        <a href="#teaching">Teaching</a>
         <a href="#service">Service</a>
       </nav>
     </div>
@@ -499,6 +507,33 @@
             <a class="preprint-title" href="https://arxiv.org/abs/2509.03102" target="_blank" rel="noopener noreferrer">CARPO: Leveraging Listwise Learning-to-Rank for Context-Aware Query Plan Optimization <svg class="icon" aria-hidden="true"><use href="#external"/></svg></a>
             <p class="authors"><strong>Wenrui Zhou</strong>, Qiyu Liu, Jingshu Peng, Aoqian Zhang, Lei Chen</p>
           </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="teaching" class="section" aria-labelledby="teaching-title">
+      <h2 id="teaching-title" class="section-title">Teaching</h2>
+      <p class="teaching-affiliation">Beijing Institute of Technology · Volunteer lectures and workshops</p>
+      <ul class="teaching-list">
+        <li>
+          <strong>Data Structures and Algorithm Analysis</strong>
+          <p>Workshops in Spring and Fall 2023 (14 hours total).</p>
+        </li>
+        <li>
+          <strong>Databases</strong>
+          <p>Final exam review workshop in Fall 2023 (6 hours).</p>
+        </li>
+        <li>
+          <strong>C++ Programming</strong>
+          <p>Final exam review workshop in Fall 2023 (6 hours).</p>
+        </li>
+        <li>
+          <strong>Calculus</strong>
+          <p>Midterm review in Fall 2022 and final exam review in Spring 2023 for economics students.</p>
+        </li>
+        <li>
+          <strong>Advanced Mathematical Analysis</strong>
+          <p>Midterm review in Fall 2022 for engineering students.</p>
         </li>
       </ul>
     </section>
