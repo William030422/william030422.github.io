@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Writing by Wenrui Zhou, originally published on WeChat.">
+  <title>Blog · Wenrui Zhou</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f8f9f4;
+      --ink: #1a2b24;
+      --muted: #4b5951;
+      --accent: #265c46;
+      --rule: #d8dfd4;
+      --tint: #e9efe5;
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+    h1, h2, p { margin: 0; }
+    h1, h2 { font-family: var(--serif); font-weight: 600; }
+    a { color: var(--accent); text-underline-offset: .2em; }
+    a:hover { color: var(--ink); }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .wrap { width: min(1064px, calc(100% - 80px)); margin-inline: auto; }
+    .skip { position: absolute; z-index: 2; top: 12px; left: 12px; padding: 8px 12px; background: var(--paper); transform: translateY(-200%); }
+    .skip:focus { transform: none; }
+    .icons { position: absolute; width: 0; height: 0; }
+
+    .masthead { border-bottom: 1px solid var(--rule); }
+    .masthead .wrap { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .mark {
+      width: 41px;
+      height: 41px;
+      display: inline-grid;
+      place-items: center;
+      flex: none;
+      background: var(--tint);
+      border: 1px solid #cbd8cc;
+      border-radius: 50%;
+      color: #204a38;
+      font: 600 17px/1 var(--serif);
+      letter-spacing: -.07em;
+      text-decoration: none;
+    }
+    .mark:hover { background: #dbe9dc; }
+    nav { display: flex; align-items: center; gap: clamp(16px, 3vw, 34px); }
+    nav a { color: var(--muted); font-size: 14px; font-weight: 550; text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; }
+    nav a:hover, nav a[aria-current="page"] { color: var(--ink); text-decoration: underline; }
+
+    .intro { padding-block: clamp(42px, 6.5vw, 82px) 37px; border-bottom: 1px solid var(--rule); }
+    h1 { margin-left: -.035em; font-size: clamp(58px, 8vw, 92px); line-height: 1.02; letter-spacing: -.06em; }
+    .intro p { margin-top: 10px; color: var(--muted); }
+    .blog-year { display: grid; grid-template-columns: 126px minmax(0, 1fr); gap: 20px; padding-block: 22px; }
+    .blog-year + .blog-year { border-top: 1px solid var(--rule); }
+    .blog-year:last-child { padding-bottom: 46px; }
+    .year { font-size: 35px; line-height: 1.55; letter-spacing: -.055em; font-variant-numeric: tabular-nums; }
+    .posts { list-style: none; padding: 0; margin: 0; }
+    .posts li + li { border-top: 1px solid var(--rule); }
+    .post-link {
+      display: grid;
+      grid-template-columns: 64px minmax(0, 1fr) 16px;
+      align-items: baseline;
+      gap: 14px;
+      padding: 13px 0;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .post-link time { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .post-title { font-size: 17px; font-weight: 650; }
+    .post-link:hover .post-title { color: var(--accent); text-decoration: underline; }
+    .post-link svg { align-self: center; width: 16px; height: 16px; color: var(--accent); }
+    footer { border-top: 1px solid var(--rule); padding: 21px 0 25px; color: var(--muted); font-size: 13px; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 12px; }
+    footer a { font-weight: 650; }
+
+    @media (max-width: 850px) {
+      .wrap { width: calc(100% - 56px); }
+      .blog-year { grid-template-columns: 94px minmax(0, 1fr); }
+    }
+    @media (max-width: 650px) {
+      .wrap { width: calc(100% - 40px); }
+      .masthead .wrap { min-height: 63px; gap: 8px; }
+      nav { flex-wrap: wrap; justify-content: flex-end; gap: 0 clamp(7px, 2.25vw, 14px); }
+      nav a { font-size: clamp(12px, 3.3vw, 13px); }
+      .intro { padding-block: 35px 24px; }
+      .blog-year { grid-template-columns: 1fr; gap: 6px; padding-block: 16px; }
+      .blog-year:last-child { padding-bottom: 29px; }
+      .year { font-size: 28px; }
+      .post-link { grid-template-columns: 47px minmax(0, 1fr) 15px; gap: 9px; }
+      .post-title { font-size: 16px; }
+      .post-link svg { width: 15px; height: 15px; }
+    }
+    @media (max-width: 360px) {
+      .masthead .wrap { width: calc(100% - 24px); gap: 6px; }
+      nav { column-gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+  <svg class="icons" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <symbol id="external" viewBox="0 0 16 16">
+      <path d="M4 12 12 4m-6 0h6v6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
+  <header class="masthead">
+    <div class="wrap">
+      <a class="mark" href="./index.html" aria-label="Wenrui Zhou, academic homepage">WZ</a>
+      <nav aria-label="Main navigation">
+        <a href="./index.html#about">About</a>
+        <a href="./index.html#publications">Publications</a>
+        <a href="./index.html#service">Service</a>
+        <a href="./index.html#teaching">Teaching</a>
+        <a href="./blog.html" aria-current="page">Blog</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="wrap">
+    <div class="intro">
+      <h1>Blog</h1>
+      <p>Writing originally published on WeChat.</p>
+    </div>
+    <section class="blog-year" aria-labelledby="year-2026">
+      <h2 id="year-2026" class="year">2026</h2>
+      <ul class="posts">
+        <li>
+          <a class="post-link" href="https://mp.weixin.qq.com/s/vA43Vu5gwg7h3aAyeojQRg" target="_blank" rel="noopener noreferrer">
+            <time datetime="2026-10-25">Oct 25</time>
+            <span class="post-title" lang="zh-Hans">【特辑】爱的强化学习</span>
+            <svg aria-hidden="true" focusable="false"><use href="#external"/></svg>
+          </a>
+        </li>
+        <li>
+          <a class="post-link" href="https://mp.weixin.qq.com/s/KnjmbdF7eunVWBRLgJIPlg" target="_blank" rel="noopener noreferrer">
+            <time datetime="2026-10-25">Oct 25</time>
+            <span class="post-title" lang="zh-Hans">地球观察员手记（一）</span>
+            <svg aria-hidden="true" focusable="false"><use href="#external"/></svg>
+          </a>
+        </li>
+        <li>
+          <a class="post-link" href="https://mp.weixin.qq.com/s/XbmQIeWUC_ME9a5yId9sfg" target="_blank" rel="noopener noreferrer">
+            <time datetime="2026-10-16">Oct 16</time>
+            <span class="post-title" lang="zh-Hans">我想去看海</span>
+            <svg aria-hidden="true" focusable="false"><use href="#external"/></svg>
+          </a>
+        </li>
+        <li>
+          <a class="post-link" href="https://mp.weixin.qq.com/s/1IdFMl-xgfqL2QJTq38Xjw" target="_blank" rel="noopener noreferrer">
+            <time datetime="2026-04-05">Apr 5</time>
+            <span class="post-title" lang="zh-Hans">东涌离良乡2148公里</span>
+            <svg aria-hidden="true" focusable="false"><use href="#external"/></svg>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section class="blog-year" aria-labelledby="year-2025">
+      <h2 id="year-2025" class="year">2025</h2>
+      <ul class="posts">
+        <li>
+          <a class="post-link" href="https://mp.weixin.qq.com/s/4hZxc8flg6PmT5GlV-zLZA" target="_blank" rel="noopener noreferrer">
+            <time datetime="2025-01-20">Jan 20</time>
+            <span class="post-title" lang="zh-Hans">冬日来信</span>
+            <svg aria-hidden="true" focusable="false"><use href="#external"/></svg>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section class="blog-year" aria-labelledby="year-2024">
+      <h2 id="year-2024" class="year">2024</h2>
+      <ul class="posts">
+        <li>
+          <a class="post-link" href="https://mp.weixin.qq.com/s/Xdw3kXeF92T4W8XjXLHVfg" target="_blank" rel="noopener noreferrer">
+            <time datetime="2024-12-31">Dec 31</time>
+            <span class="post-title" lang="zh-Hans">脱轨</span>
+            <svg aria-hidden="true" focusable="false"><use href="#external"/></svg>
+          </a>
+        </li>
+        <li>
+          <a class="post-link" href="https://mp.weixin.qq.com/s/6hI7ts0Js9PcSpr2UGgaHQ" target="_blank" rel="noopener noreferrer">
+            <time datetime="2024-06-28">Jun 28</time>
+            <span class="post-title" lang="zh-Hans">我在南半球飞驰。</span>
+            <svg aria-hidden="true" focusable="false"><use href="#external"/></svg>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span>Wenrui Zhou</span>
+      <a href="./index.html">Academic homepage</a>
+    </div>
+  </footer>
+</body>
+</html>
