@@ -309,11 +309,26 @@
     .preprint .authors { margin-top: 3px; }
 
     .teaching-affiliation { margin-top: 9px; color: var(--muted); }
-    .teaching-list { margin-top: 12px; }
-    .teaching-list li { padding: 12px 0; }
-    .teaching-list li + li { border-top: 1px solid var(--rule); }
-    .teaching-list li:last-child { padding-bottom: 0; }
-    .teaching-list p { margin-top: 3px; color: var(--muted); font-size: 14px; }
+    .teaching-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 90px 142px 100px;
+      align-items: baseline;
+      gap: 14px;
+    }
+    .teaching-header {
+      margin-top: 19px;
+      padding: 0 0 7px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 650;
+    }
+    .teaching-list li { padding: 12px 0; border-bottom: 1px solid var(--rule); }
+    .teaching-course p, .teaching-term, .teaching-duration { color: var(--muted); font-size: 14px; }
+    .teaching-course p { margin-top: 3px; }
+    .teaching-type { justify-self: start; margin-bottom: 0; }
+    .teaching-duration { font-variant-numeric: tabular-nums; }
+    .teaching-note { margin-top: 12px; color: var(--muted); font-size: 12px; }
 
     .service ul { margin-top: 16px; }
     .service li {
@@ -356,6 +371,10 @@
       .paper-thumb { width: min(100%, 320px); }
       .preprint { grid-template-columns: 43px minmax(0, 1fr); gap: 10px; }
       .service li { grid-template-columns: 1fr; gap: 2px; }
+      .teaching-header { display: none; }
+      .teaching-list { margin-top: 9px; }
+      .teaching-row { grid-template-columns: 78px minmax(0, 1fr) max-content; gap: 6px 12px; }
+      .teaching-course { grid-column: 1 / -1; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -381,8 +400,8 @@
       <nav aria-label="Main navigation">
         <a href="#about">About</a>
         <a href="#publications">Publications</a>
-        <a href="#teaching">Teaching</a>
         <a href="#service">Service</a>
+        <a href="#teaching">Teaching</a>
       </nav>
     </div>
   </header>
@@ -511,33 +530,6 @@
       </ul>
     </section>
 
-    <section id="teaching" class="section" aria-labelledby="teaching-title">
-      <h2 id="teaching-title" class="section-title">Teaching</h2>
-      <p class="teaching-affiliation">Beijing Institute of Technology · Volunteer lectures and workshops</p>
-      <ul class="teaching-list">
-        <li>
-          <strong>Data Structures and Algorithm Analysis</strong>
-          <p>Workshops in Spring and Fall 2023 (14 hours total).</p>
-        </li>
-        <li>
-          <strong>Databases</strong>
-          <p>Final exam review workshop in Fall 2023 (6 hours).</p>
-        </li>
-        <li>
-          <strong>C++ Programming</strong>
-          <p>Final exam review workshop in Fall 2023 (6 hours).</p>
-        </li>
-        <li>
-          <strong>Calculus</strong>
-          <p>Midterm review in Fall 2022 and final exam review in Spring 2023 for economics students.</p>
-        </li>
-        <li>
-          <strong>Advanced Mathematical Analysis</strong>
-          <p>Midterm review in Fall 2022 for engineering students.</p>
-        </li>
-      </ul>
-    </section>
-
     <section id="service" class="section service" aria-labelledby="service-title">
       <h2 id="service-title" class="section-title">Academic Service</h2>
       <ul>
@@ -550,6 +542,71 @@
           <span class="service-detail">ICLR, ACML</span>
         </li>
       </ul>
+    </section>
+
+    <section id="teaching" class="section" aria-labelledby="teaching-title">
+      <h2 id="teaching-title" class="section-title">Teaching</h2>
+      <p class="teaching-affiliation">Beijing Institute of Technology · Volunteer lectures and workshops</p>
+      <div class="teaching-row teaching-header" aria-hidden="true">
+        <span>Course</span>
+        <span>Format</span>
+        <span>Semester</span>
+        <span>Duration</span>
+      </div>
+      <ul class="teaching-list">
+        <li class="teaching-row">
+          <div class="teaching-course"><strong>Data Structures and Algorithm Analysis</strong></div>
+          <span class="venue teaching-type">Workshop</span>
+          <span class="teaching-term">Spring &amp; Fall 2023</span>
+          <span class="teaching-duration">14 hours</span>
+        </li>
+        <li class="teaching-row">
+          <div class="teaching-course">
+            <strong>Databases</strong>
+            <p>Final exam review</p>
+          </div>
+          <span class="venue teaching-type">Workshop</span>
+          <span class="teaching-term">Fall 2023</span>
+          <span class="teaching-duration">6 hours</span>
+        </li>
+        <li class="teaching-row">
+          <div class="teaching-course">
+            <strong>C++ Programming</strong>
+            <p>Final exam review</p>
+          </div>
+          <span class="venue teaching-type">Workshop</span>
+          <span class="teaching-term">Fall 2023</span>
+          <span class="teaching-duration">6 hours</span>
+        </li>
+        <li class="teaching-row">
+          <div class="teaching-course">
+            <strong>Calculus</strong>
+            <p>Final exam review for economics students</p>
+          </div>
+          <span class="venue teaching-type">Lecture</span>
+          <span class="teaching-term">Spring 2023</span>
+          <span class="teaching-duration">—</span>
+        </li>
+        <li class="teaching-row">
+          <div class="teaching-course">
+            <strong>Calculus</strong>
+            <p>Midterm review for economics students</p>
+          </div>
+          <span class="venue teaching-type">Lecture</span>
+          <span class="teaching-term">Fall 2022</span>
+          <span class="teaching-duration">—</span>
+        </li>
+        <li class="teaching-row">
+          <div class="teaching-course">
+            <strong>Advanced Mathematical Analysis</strong>
+            <p>Midterm review for engineering students</p>
+          </div>
+          <span class="venue teaching-type">Lecture</span>
+          <span class="teaching-term">Fall 2022</span>
+          <span class="teaching-duration">—</span>
+        </li>
+      </ul>
+      <p class="teaching-note">— Duration not recorded</p>
     </section>
   </main>
   <footer>
